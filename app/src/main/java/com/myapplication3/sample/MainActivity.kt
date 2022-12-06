@@ -10,6 +10,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        App.instance.permissionsController.bind(lifecycle, supportFragmentManager)
+        val permissionsController = PermissionsController(applicationContext = this)
+
+
+
     }
 }
