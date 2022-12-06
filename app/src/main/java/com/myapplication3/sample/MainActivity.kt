@@ -11,15 +11,15 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setContentView(R.layout.activity_main)
         val permissionsController = PermissionsController(applicationContext = this)
 
-        permissionsController.bind(lifecycle,supportFragmentManager)
+        permissionsController.bind(lifecycle, supportFragmentManager)
 
-        with(lifecycleScope){
-            launch{  permissionsController.providePermission(Permission.STORAGE) }
-            launch{  permissionsController.providePermission(Permission.CAMERA) }
+        with(lifecycleScope) {
+            launch { permissionsController.providePermission(Permission.STORAGE) }
+            launch { permissionsController.providePermission(Permission.CAMERA) }
         }
-        setContentView(R.layout.activity_main)
+
     }
 }
